@@ -14,5 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'welcome in laravel';
+
+    $data = [
+        'name' => 'Alessandro',
+        'surname' => 'Merenda',
+    ];
+    // dump($data);
+    return view('home', $data);
 });
+
+
+Route::get('/contact', function () {
+    $data = [
+        'contacts' => [
+            'phone' => 'Telefono',
+            'email' => 'email',
+            'fax' => 'Fax',
+            'social' => 'WhattApp',
+        ],
+
+    ];
+
+    return view('contact', $data);
+})->name('contact');
